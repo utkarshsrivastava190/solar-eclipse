@@ -1,0 +1,74 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffe4d6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.universe{
+    width: 30vw;
+    aspect-ratio: 1;
+    background-color: #ffbb5c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    animation: color 5s ease-in-out infinite;
+}
+.sun{
+    width: 18vw;
+    aspect-ratio: 1;
+    background-color: #e26e3e;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    &::after{
+        content: "";
+        position: absolute;
+        background-color: #000;
+        top: 0;
+        left: 0;
+        width: inherit;
+        aspect-ratio: 1;
+        border-radius: inherit;
+        animation: moon 5s ease-in-out infinite;
+    }
+}
+@keyframes moon{
+    0%{
+        translate:100%;
+        scale:1;
+    }
+    50%{
+        translate: 0%;
+        scale: 0.95;
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    }
+    100%{
+        translate: -100%;
+        scale: 0.95;
+    }
+}
+@keyframes color{
+    0%{
+        background-color: #ffbb5cb5;
+    }
+    25%{
+        background-color: #fcbf49;
+    }
+    50%{
+        background-color: #000000;
+    }
+    75%{
+        background-color: #fcbf49;
+    }
+    100%{
+        background-color: #ffbb5cb5;
+    }
+}
